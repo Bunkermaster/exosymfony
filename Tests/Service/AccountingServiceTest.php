@@ -22,6 +22,7 @@ class AccountingServiceTest extends \PHPUnit_Framework_TestCase
             [0, 0],
             [10, 12],
             [1, 1.2],
+            [1, 4],
         ];
     }
 }

@@ -12,6 +12,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Price VAT incl.</th>
                 <th>Uuid</th>
                 <th>Actions</th>
             </tr>
@@ -22,7 +23,7 @@
                 <td><a href="{{ path('_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.price }}</td>
+                <td>{{ vat[product.id] }}</td>
                 <td>{{ product.uuid }}</td>
                 <td>
                     <a href="{{ path('_show', { 'id': product.id }) }}"><button type="button" class="btn btn-lg btn-primary">Show</button></a>

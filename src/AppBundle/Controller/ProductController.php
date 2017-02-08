@@ -23,11 +23,17 @@ class ProductController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+        $accountingService = $this->get('app.service.accounting_service');
         $products = $em->getRepository('AppBundle:Product')->findAll();
+
+        $vat = [];
+        foreach($products as $product){
+            $vat[$product->getId()] = $accountingService->getVatPrice($product->getPrice());
+        }
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
+            'vat' => $vat,
         ));
     }
 
@@ -67,10 +73,12 @@ class ProductController extends Controller
     public function showAction(Product $product)
     {
         $deleteForm = $this->createDeleteForm($product);
+        $accountingService = $this->get('app.service.accounting_service');
 
         return $this->render('product/show.html.twig', array(
             'product' => $product,
             'delete_form' => $deleteForm->createView(),
+            'vat' => $accountingService->getVatPrice($product->getPrice()),
         ));
     }
 
