@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,41 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductType
 {
-
-    /**
-     * @ORM\OneToMany(targetEntity="Product", mappedBy="productType")
-     */
-    private $products;
-
-    public function __construct()
-    {
-        $this->products = new ArrayCollection();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProducts()
-    {
-        return $this->products;
-    }
-
-    /**
-     * @param mixed $products
-     * @return $this
-     */
-    public function setProducts($products)
-    {
-        $this->products = $products;
-
-        return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
-    }
-
     /**
      * @var int
      *
@@ -63,6 +27,7 @@ class ProductType
      * @ORM\Column(name="name", type="string", length=100)
      */
     private $name;
+
 
     /**
      * Get id
@@ -98,4 +63,5 @@ class ProductType
         return $this->name;
     }
 }
+
 

@@ -25,4 +25,15 @@ class AccountingServiceTest extends \PHPUnit_Framework_TestCase
             [1, 4],
         ];
     }
+
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage Price is not numeric
+     * @expectedExceptionCode 12
+     */
+    public function testIsNotNumericException()
+    {
+        $service = new AccountingService();
+        $service->getVatPrice('toto');
+    }
 }

@@ -1,0 +1,12 @@
+<?php
+namespace AppBundle\Exception;
+
+/**
+ * Class H3Exception
+ * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
+ * @package AppBundle\Exception
+ */
+class H3Exception extends \Exception
+{
+
+}

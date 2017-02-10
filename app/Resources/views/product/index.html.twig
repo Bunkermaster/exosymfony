@@ -14,6 +14,7 @@
                 <th>Price</th>
                 <th>Price VAT incl.</th>
                 <th>Uuid</th>
+                <th>Product Type</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                 <td>{{ product.price }}</td>
                 <td>{{ vat[product.id] }}</td>
                 <td>{{ product.uuid }}</td>
+                <td>{{ product.productType.name }}</td>
                 <td>
                     <a href="{{ path('_show', { 'id': product.id }) }}"><button type="button" class="btn btn-lg btn-primary">Show</button></a>
                     <a href="{{ path('_edit', { 'id': product.id }) }}"><button type="button" class="btn btn-lg btn-warning">Edit</button></a>
